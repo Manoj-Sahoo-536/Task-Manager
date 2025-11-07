@@ -19,6 +19,13 @@ const TaskCard = ({ task, onToggleComplete, onEdit, onDelete, onShare, onViewHis
   };
 
   const isTaskOverdue = task.dueDate && new Date(task.dueDate) < new Date() && task.status === 'pending';
+  
+  const getBorderColor = () => {
+    if (isTaskOverdue) return 'border-red-600 bg-red-50 dark:bg-red-900/10';
+    if (task.priority === 'high') return 'border-red-500';
+    if (task.priority === 'medium') return 'border-yellow-500';
+    return 'border-green-500';
+  };
 
   return (
     <motion.div
@@ -26,7 +33,7 @@ const TaskCard = ({ task, onToggleComplete, onEdit, onDelete, onShare, onViewHis
       onClick={() => onViewDetails?.(task)}
       className={`group relative bg-amber-50 dark:bg-gray-800 rounded-lg shadow-md p-3 sm:p-4 border-l-4 cursor-pointer h-full flex flex-col ${
         task.status === 'completed' ? 'opacity-60' : ''
-      } ${isTaskOverdue ? 'border-red-600 bg-red-50 dark:bg-red-900/10' : task.priority === 'high' ? 'border-red-500' : task.priority === 'medium' ? 'border-yellow-500' : 'border-green-500'}`}
+      } ${getBorderColor()}`}
     >
       <div className="flex items-start space-x-2 sm:space-x-3 flex-1">
           <input
