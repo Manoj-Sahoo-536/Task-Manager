@@ -172,7 +172,7 @@ const TaskCard = ({ task, onToggleComplete, onEdit, onDelete, onShare, onViewHis
         </div>
       )}
 
-      <div className="absolute top-2 right-2 sm:top-4 sm:right-4 flex space-x-1 sm:space-x-2 opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition">
+      <div className="absolute top-2 right-2 sm:top-4 sm:right-4 flex space-x-0.5 sm:space-x-1 opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition">
         <button
           onClick={(e) => {
             e.stopPropagation();
