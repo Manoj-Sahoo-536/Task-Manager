@@ -62,7 +62,9 @@ const TaskCard = ({ task, onToggleComplete, onEdit, onDelete, onShare, onViewHis
               })()}
             </h3>
             {task.description && (
-              <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-400 mt-1 break-words">{task.description}</p>
+              <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-400 mt-1 truncate">
+                {task.description.length > 50 ? task.description.substring(0, 50) + '...' : task.description}
+              </p>
             )}
             
             <div className="flex flex-wrap items-center gap-1 sm:gap-2 mt-2 sm:mt-3 pr-20 sm:pr-32">
