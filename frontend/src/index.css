@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-primary: #3B82F6;
+  --color-secondary: #8B5CF6;
+  --color-success: #10B981;
+  --color-warning: #F59E0B;
+  --color-danger: #EF4444;
+  --color-background: #F9FAFB;
+  --color-surface: #FFFFFF;
+  --color-text: #111827;
+}
+
+.theme-primary {
+  background-color: var(--color-primary);
+}
+
+.theme-text-primary {
+  color: var(--color-primary);
+}
+
+.theme-border-primary {
+  border-color: var(--color-primary);
+}
