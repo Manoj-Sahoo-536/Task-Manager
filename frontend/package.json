@@ -1,8 +1,16 @@
 {
   "name": "frontend",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
+  "author": "Manoj Kumar Sahoo <manojsahoo8940@gmail.com> (https://github.com/Manoj-Sahoo-536)",
+  "description": "Task Manager Frontend - Copyright © 2025 Manoj Kumar Sahoo",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Manoj-Sahoo-536/Task-Manager.git"
+  },
+  "homepage": "https://mks-task-manager.vercel.app",
   "scripts": {
     "dev": "vite",
     "build": "vite build",

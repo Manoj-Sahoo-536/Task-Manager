@@ -1,3 +1,11 @@
+/**
+ * Task Manager API Server
+ * Copyright © 2025 Manoj Kumar Sahoo. All Rights Reserved.
+ * Author: Manoj Kumar Sahoo
+ * GitHub: https://github.com/Manoj-Sahoo-536
+ * Email: manojsahoo8940@gmail.com
+ */
+
 require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
@@ -36,7 +44,13 @@ app.use('/api/', limiter);
 
 // Routes
 app.get('/', (req, res) => {
-  res.json({ message: 'Task Manager API' });
+  res.json({ 
+    message: 'Task Manager API',
+    version: '1.0.0',
+    author: 'Manoj Kumar Sahoo',
+    copyright: '© 2025 Manoj Kumar Sahoo. All Rights Reserved.',
+    github: 'https://github.com/Manoj-Sahoo-536/Task-Manager'
+  });
 });
 
 app.use('/api/auth', require('./routes/authRoutes'));

@@ -1,3 +1,10 @@
+/**
+ * Task Manager Application
+ * Copyright © 2025 Manoj Kumar Sahoo. All Rights Reserved.
+ * Author: Manoj Kumar Sahoo
+ * GitHub: https://github.com/Manoj-Sahoo-536
+ */
+
 import { useState, useEffect } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -8,6 +15,7 @@ import Register from './pages/Register';
 import Dashboard from './pages/Dashboard';
 import Profile from './pages/Profile';
 import Navbar from './components/Navbar';
+import Footer from './components/Footer';
 import { useTasks } from './hooks/useTasks';
 import ImportExportModal from './components/ImportExportModal';
 import OfflineIndicator from './components/OfflineIndicator';
@@ -40,7 +48,7 @@ function AuthenticatedApp({ theme, toggleTheme, user, onLogout, showImportExport
   };
 
   return (
-    <>
+    <div className="flex flex-col min-h-screen">
       <Navbar
         theme={theme}
         toggleTheme={toggleTheme}
@@ -50,23 +58,26 @@ function AuthenticatedApp({ theme, toggleTheme, user, onLogout, showImportExport
         onImportExport={() => setShowImportExport(true)}
         points={user.points || 0}
       />
-      {currentPage === 'dashboard' && (
-        <Dashboard
-          tasks={tasks}
-          onTaskUpdate={handleTaskUpdate}
-          onShareTask={shareTask}
-          searchQuery={searchQuery}
-          user={user}
-        />
-      )}
-      {currentPage === 'profile' && (
-        <Profile user={user} onUpdateUser={onUpdateUser} />
-      )}
+      <div className="flex-1 pb-16">
+        {currentPage === 'dashboard' && (
+          <Dashboard
+            tasks={tasks}
+            onTaskUpdate={handleTaskUpdate}
+            onShareTask={shareTask}
+            searchQuery={searchQuery}
+            user={user}
+          />
+        )}
+        {currentPage === 'profile' && (
+          <Profile user={user} onUpdateUser={onUpdateUser} />
+        )}
+      </div>
       <ImportExportModal
         isOpen={showImportExport}
         onClose={() => setShowImportExport(false)}
       />
-    </>
+
+    </div>
   );
 }
 
@@ -136,7 +147,7 @@ function App() {
   }
 
   return (
-    <div className="min-h-screen bg-slate-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100">
+    <div className="min-h-screen bg-slate-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100 flex flex-col">
       <OfflineIndicator />
       <ToastContainer
         position="top-right"
@@ -151,8 +162,16 @@ function App() {
         theme={theme}
       />
 
-      {view === 'login' && <Login onLogin={handleLogin} onSwitchToRegister={() => setView('register')} />}
-      {view === 'register' && <Register onRegister={handleLogin} onSwitchToLogin={() => setView('login')} />}
+      {view === 'login' && (
+        <div className="flex-1 flex flex-col pb-16">
+          <Login onLogin={handleLogin} onSwitchToRegister={() => setView('register')} />
+        </div>
+      )}
+      {view === 'register' && (
+        <div className="flex-1 flex flex-col pb-16">
+          <Register onRegister={handleLogin} onSwitchToLogin={() => setView('login')} />
+        </div>
+      )}
       
       {view === 'dashboard' && user && (
         <AuthenticatedApp
@@ -166,10 +185,8 @@ function App() {
           onUpdateUser={handleUpdateUser}
         />
       )}
-
-
-
-
+      
+      <Footer />
     </div>
   );
 }

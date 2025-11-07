@@ -1,9 +1,29 @@
-import { FiEdit2, FiTrash2, FiClock, FiRepeat, FiPaperclip, FiUsers, FiShare2, FiEye, FiDownload } from 'react-icons/fi';
+import { FiEdit2, FiTrash2, FiClock, FiRepeat, FiPaperclip, FiUsers, FiShare2, FiEye, FiDownload, FiMoreVertical } from 'react-icons/fi';
 import { MdHistory } from 'react-icons/md';
 import FileAttachment from './FileAttachment';
 import { motion } from 'framer-motion';
+import { useState, useEffect, useRef } from 'react';
 
 const TaskCard = ({ task, onToggleComplete, onEdit, onDelete, onShare, onViewHistory, onViewDetails }) => {
+  const [showActions, setShowActions] = useState(false);
+  const [preventTaskClick, setPreventTaskClick] = useState(false);
+  const dropdownRef = useRef(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setShowActions(false);
+      }
+    };
+
+    if (showActions) {
+      document.addEventListener('mousedown', handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [showActions]);
   const priorityColors = {
     low: 'bg-green-500',
     medium: 'bg-yellow-500',
@@ -34,7 +54,11 @@ const TaskCard = ({ task, onToggleComplete, onEdit, onDelete, onShare, onViewHis
   return (
     <motion.div
       whileHover={{ scale: 1.01 }}
-      onClick={() => onViewDetails?.(task)}
+      onClick={() => {
+        if (!showActions) {
+          onViewDetails?.(task);
+        }
+      }}
       className={`group relative bg-amber-50 dark:bg-gray-800 rounded-lg shadow-md p-3 sm:p-4 border-l-4 cursor-pointer h-full flex flex-col ${
         task.status === 'completed' ? 'opacity-60' : ''
       } ${getBorderColor()}`}
@@ -172,45 +196,79 @@ const TaskCard = ({ task, onToggleComplete, onEdit, onDelete, onShare, onViewHis
         </div>
       )}
 
-      <div className="absolute top-2 right-2 sm:top-4 sm:right-4 flex space-x-0.5 sm:space-x-1 opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition">
+      <div className="absolute top-2 right-2 sm:top-4 sm:right-4" ref={dropdownRef}>
+        {/* Three dots menu button */}
         <button
           onClick={(e) => {
             e.stopPropagation();
-            onViewHistory?.(task._id);
+            setShowActions(!showActions);
           }}
-          className="p-2 hover:bg-purple-100 dark:hover:bg-purple-900 rounded text-purple-600"
-          title="View history"
+          className="p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded text-gray-600 dark:text-gray-400"
+          title="More actions"
         >
-          <MdHistory size={16} />
+          <FiMoreVertical size={16} />
         </button>
-        <button
-          onClick={(e) => {
-            e.stopPropagation();
-            onShare(task);
-          }}
-          className="p-2 hover:bg-blue-100 dark:hover:bg-blue-900 rounded text-blue-600"
-          title="Share task"
-        >
-          <FiShare2 size={16} />
-        </button>
-        <button
-          onClick={(e) => {
-            e.stopPropagation();
-            onEdit(task);
-          }}
-          className="p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded"
-        >
-          <FiEdit2 size={16} />
-        </button>
-        <button
-          onClick={(e) => {
-            e.stopPropagation();
-            onDelete(task._id);
-          }}
-          className="p-2 hover:bg-red-100 dark:hover:bg-red-900 rounded text-red-600"
-        >
-          <FiTrash2 size={16} />
-        </button>
+        
+        {/* Overlay to capture clicks when dropdown is open */}
+        {showActions && (
+          <div 
+            className="fixed inset-0 z-5" 
+            onClick={(e) => {
+              e.stopPropagation();
+              setShowActions(false);
+            }}
+          />
+        )}
+        
+        {/* Action buttons dropdown */}
+        {showActions && (
+          <div className="absolute top-2 right-0 transform -translate-x-8 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded shadow-lg z-10 w-20">
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                onViewHistory?.(task._id);
+                setShowActions(false);
+              }}
+              className="w-full px-2 py-1 hover:bg-purple-50 dark:hover:bg-purple-900/20 text-purple-600 flex items-center space-x-1 text-xs"
+            >
+              <MdHistory size={10} />
+              <span>History</span>
+            </button>
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                onShare(task);
+                setShowActions(false);
+              }}
+              className="w-full px-2 py-1 hover:bg-blue-50 dark:hover:bg-blue-900/20 text-blue-600 flex items-center space-x-1 text-xs"
+            >
+              <FiShare2 size={10} />
+              <span>Share</span>
+            </button>
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                onEdit(task);
+                setShowActions(false);
+              }}
+              className="w-full px-2 py-1 hover:bg-gray-50 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-300 flex items-center space-x-1 text-xs"
+            >
+              <FiEdit2 size={10} />
+              <span>Edit</span>
+            </button>
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                onDelete(task._id);
+                setShowActions(false);
+              }}
+              className="w-full px-2 py-1 hover:bg-red-50 dark:hover:bg-red-900/20 text-red-600 flex items-center space-x-1 text-xs"
+            >
+              <FiTrash2 size={10} />
+              <span>Delete</span>
+            </button>
+          </div>
+        )}
       </div>
     </motion.div>
   );

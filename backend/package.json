@@ -7,10 +7,15 @@
     "dev": "nodemon server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": ["task-manager", "productivity", "todo", "gamification"],
+  "author": "Manoj Kumar Sahoo <manojsahoo8940@gmail.com> (https://github.com/Manoj-Sahoo-536)",
   "license": "ISC",
-  "description": "",
+  "description": "Task Manager - A full-featured task management application with gamification and collaboration. Copyright © 2025 Manoj Kumar Sahoo.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Manoj-Sahoo-536/Task-Manager.git"
+  },
+  "homepage": "https://mks-task-manager.vercel.app",
   "dependencies": {
     "bcryptjs": "^3.0.3",
     "cors": "^2.8.5",
