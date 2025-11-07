@@ -21,10 +21,14 @@ const TaskCard = ({ task, onToggleComplete, onEdit, onDelete, onShare, onViewHis
   const isTaskOverdue = task.dueDate && new Date(task.dueDate) < new Date() && task.status === 'pending';
   
   const getBorderColor = () => {
-    if (isTaskOverdue) return 'border-red-600 bg-red-50 dark:bg-red-900/10';
-    if (task.priority === 'high') return 'border-red-500';
-    if (task.priority === 'medium') return 'border-yellow-500';
-    return 'border-green-500';
+    // Always use priority colors for border, but add overdue background
+    const priorityBorder = task.priority === 'high' ? 'border-red-500' : 
+                          task.priority === 'medium' ? 'border-yellow-500' : 
+                          'border-green-500';
+    
+    const overdueBackground = isTaskOverdue ? 'bg-red-50 dark:bg-red-900/10' : '';
+    
+    return `${priorityBorder} ${overdueBackground}`;
   };
 
   return (
