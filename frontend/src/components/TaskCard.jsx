@@ -52,8 +52,14 @@ const TaskCard = ({ task, onToggleComplete, onEdit, onDelete, onShare, onViewHis
           />
           
           <div className="flex-1 min-w-0 flex flex-col">
-            <h3 className={`font-semibold text-base sm:text-lg ${task.status === 'completed' ? 'line-through' : ''} break-words`}>
-              {task.title}
+            <h3 className={`font-semibold text-base sm:text-lg ${task.status === 'completed' ? 'line-through' : ''} break-words pr-2`}>
+              {(() => {
+                const words = task.title.split(' ');
+                if (words.length > 3) {
+                  return words.slice(0, 3).join(' ') + '...';
+                }
+                return task.title;
+              })()}
             </h3>
             {task.description && (
               <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-400 mt-1 break-words">{task.description}</p>
