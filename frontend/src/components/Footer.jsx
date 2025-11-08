@@ -14,7 +14,7 @@ const Footer = () => {
             <span>•</span>
             <span>Created by</span>
             <a 
-              href="#" 
+              href="https://github.com/Manoj-Sahoo-536/" 
               target="_blank" 
               rel="noopener noreferrer"
               className="text-blue-600 dark:text-blue-400 hover:underline font-semibold"
