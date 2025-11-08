@@ -4,7 +4,7 @@
 
 ### A Modern, Full-Featured Task Management Application
 
-**🚀 [Live Demo](https://mks-task-manager.vercel.app/) | 📖 [Documentation](#-features) | 🐛 [Report Bug](https://github.com/Manoj-Sahoo-536/Task-Manager/issues)**
+**🚀 [Live Demo](https://mks-task-manager.vercel.app/) | 📖 [Documentation](#-documentation) | 🐛 [Report Bug](https://github.com/Manoj-Sahoo-536/Task-Manager/issues)**
 
 </div>
 
@@ -31,9 +31,9 @@ Task Manager is a powerful, feature-rich task management application designed to
 
 ## 🚀 Demo
 
-![Task Manager Demo](demo-screenshot.png)
-
 > **Try it live:** [https://mks-task-manager.vercel.app/](https://mks-task-manager.vercel.app/)
+
+> **View Screenshots:** [See all screenshots](#-screenshots)
 
 ---
 
@@ -245,23 +245,22 @@ VITE_API_URL=http://localhost:5000/api
 ![Dashboard](screenshots/Dashboard.png)
 
 ### White Mode
-![White Mode](screenshots/White Mode.png)
+![White Mode](screenshots/WhiteMode.png)
 
 ### User Profile
-![User Profile](screenshots/User Profile.png)
+![User Profile](screenshots/UserProfile.png)
 
 ### Task Details
-![Task Details](screenshots/Task Details.png)
+![Task Details](screenshots/TaskDetails.png)
 
 ### Share Task
-![Share Task](screenshots/Share Task.png)
+![Share Task](screenshots/ShareTask.png)
 
 ### Task History
-![Task History](screenshots/Task History.png)
+![Task History](screenshots/TaskHistory.png)
 
 ### Import/Export
 ![Import/Export](screenshots/Import-Export.png)
-
 
 </div>
 
