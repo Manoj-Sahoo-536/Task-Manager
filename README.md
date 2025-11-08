@@ -31,9 +31,30 @@ Task Manager is a powerful, feature-rich task management application designed to
 
 ## 🚀 Demo
 
-> **Try it live:** [https://mks-task-manager.vercel.app/](https://mks-task-manager.vercel.app/)
+### Live Application
+🔗 **[View Live Demo](https://mks-task-manager.vercel.app/)**
 
-> **View Screenshots:** [See all screenshots](#-screenshots)
+### 🎨 Screenshots
+
+<div align="center">
+
+| Login Page | Dashboard |
+|------------|-----------|
+| ![Registration & Login](screenshots/Register.png) | ![Dashboard](screenshots/Dashboard.png) |
+
+| White Mode | User Profile |
+|-------------|-----------------|
+| ![White Mode](screenshots/WhiteMode.png) | ![User Profile](screenshots/UserProfile.png) |
+
+| Tasl Details | Share Task |
+|-------------|-----------------|
+| ![Task Details](screenshots/TaskDetails.png) | ![Share Task](screenshots/ShareTask.png) |
+
+| Task History | Import/Export |
+|-------------|-----------------|
+| ![Task History](screenshots/TaskHistory.png) | ![Import/Export](screenshots/Import-Export.png) |
+
+</div>
 
 ---
 
@@ -231,30 +252,6 @@ VITE_API_URL=http://localhost:5000/api
 - The app automatically caches data for offline use
 - Create and edit tasks without internet
 - Changes sync automatically when back online
-
----
-
-## 🎨 Screenshots
-
-<div align="center">
-
-| Login Page | Dashboard |
-|------------|-----------|
-| ![Registration & Login](screenshots/Register.png) | ![Dashboard](screenshots/Dashboard.png) |
-
-| White Mode | User Profile |
-|-------------|-----------------|
-| ![White Mode](screenshots/WhiteMode.png) | ![User Profile](screenshots/UserProfile.png) |
-
-| Tasl Details | Share Task |
-|-------------|-----------------|
-| ![Task Details](screenshots/TaskDetails.png) | ![Share Task](screenshots/ShareTask.png) |
-
-| Task History | Import/Export |
-|-------------|-----------------|
-| ![Task History](screenshots/TaskHistory.png) | ![Import/Export](screenshots/Import-Export.png) |
-
-</div>
 
 ---
 
