@@ -238,29 +238,21 @@ VITE_API_URL=http://localhost:5000/api
 
 <div align="center">
 
-### Registration & Login
-![Registration & Login](screenshots/Register.png)
+| Login Page | Dashboard |
+|------------|-----------|
+| ![Registration & Login](screenshots/Register.png) | ![Dashboard](screenshots/Dashboard.png) |
 
-### Dashboard
-![Dashboard](screenshots/Dashboard.png)
+| White Mode | User Profile |
+|-------------|-----------------|
+| ![White Mode](screenshots/WhiteMode.png) | ![User Profile](screenshots/UserProfile.png) |
 
-### White Mode
-![White Mode](screenshots/WhiteMode.png)
+| Tasl Details | Share Task |
+|-------------|-----------------|
+| ![Task Details](screenshots/TaskDetails.png) | ![Share Task](screenshots/ShareTask.png) |
 
-### User Profile
-![User Profile](screenshots/UserProfile.png)
-
-### Task Details
-![Task Details](screenshots/TaskDetails.png)
-
-### Share Task
-![Share Task](screenshots/ShareTask.png)
-
-### Task History
-![Task History](screenshots/TaskHistory.png)
-
-### Import/Export
-![Import/Export](screenshots/Import-Export.png)
+| Task History | Import/Export |
+|-------------|-----------------|
+| ![Task History](screenshots/TaskHistory.png) | ![Import/Export](screenshots/Import-Export.png) |
 
 </div>
 
